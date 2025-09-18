@@ -12,4 +12,5 @@ parameters:
     postgresql:
       debian:
         - "postgresql-${app__postgresql__version}-cron"
-
+      debian_bookworm:
+        - "postgresql-${app__postgresql__version}-cron"
