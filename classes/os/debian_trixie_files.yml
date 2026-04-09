@@ -1,0 +1,22 @@
+parameters:
+  os__files_version: 13.4
+  os__installer_base:
+    debian:
+      bookworm:
+        amd64:
+          - url: 'http://ftp.uni-stuttgart.de/debian/dists/Debian${os__files_version}/main/installer-amd64/current/images/MANIFEST'
+            dest: '{{ os__tmp_images_dir }}/MANIFEST'
+            checksum: 'sha256:3a9f1b529229024126b1a025a66262d5af28212bac4d5fe4ec15b664e442b646'
+            virt_install: True
+          - url: 'http://ftp.uni-stuttgart.de/debian/dists/Debian${os__files_version}/main/installer-amd64/current/images/MANIFEST.udebs'
+            dest: '{{ os__tmp_images_dir }}/MANIFEST.udeps'
+            checksum: 'sha256:77ae06232e01a7b730b86b82822ff46d46803ed9659485d970c36da889a9a9a3'
+            virt_install: True
+          - url: 'http://ftp.uni-stuttgart.de/debian/dists/Debian${os__files_version}/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz'
+            dest: '{{ os__tmp_image_dir }}/initrd.gz'
+            checksum: 'sha256:653b254a530529d544fe2d0420078cdd3e595cce32ed782187e7d69ffc959ad8'
+            virt_install: True
+          - url: 'http://ftp.uni-stuttgart.de/debian/dists/Debian${os__files_version}/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux'
+            dest: '{{ os__tmp_image_dir }}/linux'
+            checksum: 'sha256:e3b18c3f1700aee0b59e82c82fafbc6f63a138dd319103821899a0dc37b4db9e'
+            virt_install: True

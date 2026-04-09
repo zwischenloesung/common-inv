@@ -1,0 +1,7 @@
+classes:
+  - os.debian
+  - os.debian_trixie_files
+
+parameters:
+  os__codename: trixie
+  os__version: 13.4
