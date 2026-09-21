@@ -1,0 +1,37 @@
+parameters:
+  os__mirror: 'enterprise.proxmox.com'
+  os__type: 'GNU/Linux'
+  os__distro: 'proxmox-debian'
+  os__codename: 'stable'
+  os__short: '${os__distro}_${os__codename}'
+  os__base_config_files:
+    - '/etc/fstab'
+    - '/etc/hosts'
+  os__cert_group: 'ssl-cert'
+  os__installer_files: '{{ os__installer_base[os_distro][os_codename][target_arch] }}'
+  os__installer_base:
+    proxmox:
+  os__tmp_base_dir: ''
+  os__tmp_installer_dir: ''
+  os__tmp_images_dir: ''
+  os__tmp_image_dir: ''
+  os__repository:
+    default:
+      deb: "deb http://deb.debian.org/debian/ {{ os__codename }} main contrib non-free non-free-firmware"
+      deb_src: "deb-src http://deb.debian.org/debian/ {{ os__codename }} main contrib non-free non-free-firmware"
+    security:
+      deb: "deb http://security.debian.org/debian-security {{ os__codename }}-security main contrib non-free non-free-firmware"
+      deb_src: "deb-src http://security.debian.org/debian-security {{ os__codename }}-security main contrib non-free non-free-firmware"
+    updates:
+      deb: "deb http://deb.debian.org/debian/ {{ os__codename }}-updates main contrib non-free non-free-firmware"
+      deb_src: "deb-src http://deb.debian.org/debian/ {{ os__codename }}-updates main contrib non-free non-free-firmware"
+# only used in roles/create_vm ..
+#  os__installer_templates:
+#    - src: 'preseed.j2'
+#      dest: '{{ host__dist_installer }}/preseed.cfg'
+#    - src: 'late_script.sh'
+#      dest: '{{ host__dist_installer }}/late_script.sh'
+#    - src: 'debian_postinstall.sh'
+#      dest: '{{ os__tmp_base_dir }}/debian_postinstall.sh'
+#    - src: 'inofix_base.sh'
+#      dest: '{{ os__tmp_base_dir }}/inofix_base.sh'

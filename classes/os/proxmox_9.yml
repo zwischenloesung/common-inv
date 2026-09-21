@@ -1,0 +1,7 @@
+classes:
+  - os.proxmox
+  - os.proxmox_ve9_files
+
+parameters:
+  os__codename: "bookworm"
+  os__version: 12
