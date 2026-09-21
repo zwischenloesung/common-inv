@@ -2,7 +2,7 @@ parameters:
   os__files_version: ve9.2
   os__installer_base:
     proxmox:
-      7:
+      9:
         amd64:
           - url: 'https://{{ os__mirror }}/iso/proxmox-ve_9.2-1.iso'
             dest: '{{ os__tmp_images_dir }}/proxmox-ve_9.2-1.iso'
